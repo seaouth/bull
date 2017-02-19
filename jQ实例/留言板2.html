@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+	<script src="jquery-1.11.3.min.js"></script>
+    <style>
+    #weibo{
+        width: 620px;
+        border: 1px solid #000;
+        margin: 100px auto 0;
+        padding: 10px;
+    }
+    #weibo textarea{
+        width: 455px;
+        height: 165px;
+        resize: none;
+        vertical-align: bottom;
+        
+    }
+    #weibo button{
+        width: 40px;
+        height: 24px;
+        vertical-align: bottom;
+    }
+    #weibo ul{
+        margin: 20px 20px 20px 90px;
+    }
+    #weibo li{
+        list-style-type: none;
+        line-height:24px;
+        border-bottom: 1px dashed #ccc;
+        word-break:break-all; 
+    }
+    </style>
+    <script>
+    $(function(){
+            //当单击按钮的时候,发布微博
+            $('#weibo button').click(function(){
+                //得到用户的输入
+                var txt = $.trim( $('#weibo textarea').prop('value'));
+                //console.log(txt);
+                if(txt!=''){
+                var $new_li = $('<li>'+txt+'</li>'); 
+                $('ul').prepend( $new_li );
+                $('ul>li:first').hide().slideDown(500);
+                }else{
+                    alert("请输入微博内容");
+                }
+                txt="";
+            })
+        
+    })  
+    </script>
+</head>
+<body>
+    <div id="weibo">
+    微博内容:
+    <textarea rows="11px " cols="40px" resize="none"></textarea>
+    <button>发布</button>
+    <ul>
+        <li>昨天我碰到了刘青</li>     
+    </ul>
+    </div>
+</body>
+</html>
