@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作</title>
+	<style>
+		.lanbian{
+			border:5px solid blue;
+			padding:5px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 修改图片src属性
+		$('button:eq(0)').click(function(){
+			$('img').attr('src', 'images/39/2.jpg');
+		});
+
+		// 访问图片title属性
+		$('button:eq(1)').click(function(){
+			alert( $('img').attr('title') );
+		});
+
+		// 删除图片title属性
+		$('button:eq(2)').click(function(){
+			// $('img').attr('title', '');
+			$('img').removeAttr('title');
+		});
+
+		// 给图片添加lanbian类
+		$('button:eq(3)').click(function(){
+			// $('img').attr('class', 'handou minghua lanbian');
+			$('img').addClass('lanbian');
+		});
+
+		// 给图片去掉lanbian类
+		$('button:eq(4)').click(function(){
+			$('img').removeClass('lanbian');
+		});
+
+		// 图片切换lanbian类
+		$('button:eq(5)').click(function(){
+			$('img').toggleClass('lanbian');
+		});
+
+		// 判断图片有无lanbian类
+		$('button:eq(6)').click(function(){
+			// alert( $('img').is('.lanbian') );
+			alert( $('img').hasClass('lanbian') );
+		});
+
+		// 访问表单元素的类型
+		$('button:eq(7)').click(function(){
+			alert( $('input').prop('type') );
+		});
+
+		// 修改表单元素的类型
+		$('button:eq(8)').click(function(){
+			$('input').prop('type', 'range');
+		});
+
+		// 修改表单元素的值
+		$('button:eq(9)').click(function(){
+			// $('input').prop('value', 80);
+			$('input').val(80);
+		});
+
+		// 访问表单元素的值
+		$('button:eq(10)').click(function(){
+			// alert( $('input').prop('value') );
+			alert( $('input').val() );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>修改图片src属性</button>
+    <button>访问图片title属性</button>
+    <button>删除图片title属性</button>
+    <button>给图片添加lanbian类</button>
+    <button>给图片去掉lanbian类</button>
+    <button>图片切换lanbian类</button>
+    <button>判断图片有无lanbian类</button>
+
+    <button>访问表单元素的类型</button>
+    <button>修改表单元素的类型</button>
+    <button>修改表单元素的值</button>
+    <button>访问表单元素的值</button>
+    <br><br>
+
+	<img src="images/39/1.jpg" title="憨豆入名画" class="handou minghua">
+	<br><br>
+	年龄：<input id="age" value="18">
+</body>
+</html>

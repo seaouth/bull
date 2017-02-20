@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>错误事件处理</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当图片出错的时候，替换为一个统一的图片
+		$('img').error(function(e){
+			var $img = $('<img src="images/58.jpg" alt="">');
+
+			$(this).replaceWith( $img );
+		});
+	})
+	</script>
+</head>
+<body>
+	<img src="images/1111.jpg" alt="">
+
+</body>
+</html>

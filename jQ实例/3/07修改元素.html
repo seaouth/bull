@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改元素</title>
+	<style>
+		.box{
+			width: 400px;
+			height: 400px;
+			background-color: #eee;
+			border: 1px solid #000;
+			float: left;
+			margin:20px;
+		}
+		img{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:20px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 将.box替换为图片
+		$('button').click(function(){
+			//方法一：
+			/*var $new_el = $('<img src="images/37.gif" alt="">');
+
+			$('.box').replaceWith( $new_el );
+			*/
+
+			//方法二：
+			// $('.box').replaceWith( '<img src="images/37.gif" alt="">' );
+
+			//方法三：
+			var $new_el = $('<img src="images/37.gif" alt="">');
+			$new_el.replaceAll( $('.box') );
+
+			
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>将.box替换为图片</button>
+	<br><br>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+
+</body>
+</html>

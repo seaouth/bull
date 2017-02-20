@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的书写步骤</title>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		//入口函数
+		$(function(){
+			// 隐藏
+			$('button:eq(0)').click(function(){
+				$('img').hide(1000);
+			});
+
+			// 显示
+			$('button:eq(1)').click(function(){
+				$('img').show(1000);
+			});
+
+			// 切换
+			$('button:eq(2)').click(function(){
+				$('img').toggle(1000);
+			});
+		})
+	</script>
+</head>
+<body>
+	<button>隐藏</button>
+	<button>显示</button>
+	<button>切换</button>
+	<br><br>
+	<img src="images/02.jpg" alt="">
+</body>
+</html>

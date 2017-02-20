@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评分</title>
+	<style>
+		*{margin:0;padding:0}
+		#pingfen{
+			width: 135px;
+			height: 28px;
+			margin:10px auto 0;
+		}
+		#pingfen ul{
+			overflow:hidden;
+		}
+		#pingfen li{
+			width: 27px;
+			height: 28px;
+			background: url('images/21.gif');
+			list-style-type:none;
+			cursor:pointer;
+			float: left;
+		}
+		#pingfen li.jinxing{
+			background-position:left bottom;
+		}
+		#pingfen span{
+			color:#f60;
+			font-weight: bold;
+		}
+	</style>
+	<!-- <script src="jquery-1.11.3.min.js"></script> -->
+	    <script src="//cdn.bootcss.com/jquery/3.1.1/core.js"></script>
+
+	<script>
+	$(function(){
+		var $pingfen_li = $('#pingfen li');
+		var $ping_span  = $('#pingfen span');
+
+		//当用单击某个星星的时候，该星星左侧的星星会变金星，右侧的星星会变银星
+		$pingfen_li.click(function(){
+			$(this).prevAll().addBack().attr('class', 'jinxing');   //该星星左侧的星星会变金星
+			$(this).nextAll().attr('class', '');   //右侧的星星会变银星
+
+			//用户点的星星的索引值+1，就是用户的评分
+			var pingfenshu = $(this).index()+1;
+			$ping_span.html(pingfenshu);
+		}).mouseover(function(){    //当用户移上星星的时候
+			$(this).prevAll().addBack().attr('class', 'jinxing');   //该星星左侧的星星会变金星
+			$(this).nextAll().attr('class', '');   //右侧的星星会变银星
+		}).mouseout(function(){    //当用户鼠标在星星上离开的时候，应该恢复到用户的评分状态
+			var pingfenshu = parseInt( $ping_span.html() );
+
+			//让索引值小于评分数的星星变金星
+			//让索引值大于评分数-1的星星变银星
+			$pingfen_li.filter(':lt('+pingfenshu+')').attr('class', 'jinxing'); 
+			$pingfen_li.filter(':gt('+(pingfenshu-1)+')').attr('class', '');
+		});
+	})
+	</script>
+</head>
+<body>
+	<div id="pingfen">
+		<ul>
+			<li class="jinxing"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<p>您的评分为：<span>1</span></p>
+	</div>
+</body>
+</html>

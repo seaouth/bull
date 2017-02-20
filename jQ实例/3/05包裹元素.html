@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>包裹元素</title>
+	<style>
+		section,span{
+			border: 3px solid blue;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 给p,img和div标签分别包裹section
+		$('button:eq(0)').click(function(){
+			
+			/*
+			// 方法一：
+			var $new_el = $('<section></section>');
+
+			$('p,img,div').wrap( $new_el );
+			*/
+		
+			//方法二：
+			$('p,img,div').wrap( '<section></section>' );
+
+
+		});
+
+		// 用section包裹p,img和div
+		$('button:eq(1)').click(function(){
+			// 方法一：
+			/*var $new_el = $('<section></section>');
+
+			$('p,img,div').wrapAll( $new_el );*/
+
+
+			// 方法二：
+			$('p,img,div').wrapAll( '<section></section>' );
+
+		});
+
+		// 用span分别包裹p和div的内部
+		$('button:eq(2)').click(function(){
+			//方法一：
+			/*var $new_el = $('<span></span>');
+
+			$('p,div').wrapInner( $new_el );*/
+
+
+			//方法二：
+			$('p,div').wrapInner( '<span></span>' );
+
+
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>给p,img和div标签分别包裹section</button>
+	<button>用section包裹p,img和div</button>
+	<button>用span分别包裹p和div的内部</button><br><br>
+
+	<p>段落</p>
+	<img src="images/35.jpg" alt="">
+	<div>div</div>
+</body>
+</html>

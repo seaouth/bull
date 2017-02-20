@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素过滤选择器2</title>
+	<style>
+		*{
+			margin:0;padding:0;
+		}
+		section{
+			border:1px solid #ccc;
+			padding:20px;
+			margin:20px;
+			overflow:hidden;
+		}
+		section p,section div{
+			float: left;
+			margin-right: 20px;
+		}
+		section img{
+			width:200px;
+		}
+	</style>
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 选择section下的第二个div（每家的第二个儿子）
+		$('button:eq(0)').click(function(){
+			$('div:nth-of-type(2)').css('border', '5px solid blue');
+		});
+
+		// 选择section下的第一个p（每家的第一个女儿）
+		$('button:eq(1)').click(function(){
+			// $('p:nth-of-type(1)').css('border', '5px solid blue');
+			$('p:first-of-type').css('border', '5px solid blue');
+		});
+
+		// 选择section下的最后一个p（每家最小的女儿）
+		$('button:eq(2)').click(function(){
+			$('p:last-of-type').css('border', '5px solid blue');
+		});
+
+		// 选择section下的倒数第二个div（每家的第二小的儿子）
+		$('button:eq(3)').click(function(){
+			$('div:nth-last-of-type(2)').css('border', '5px solid blue');
+		});
+
+		// 选择section下的唯一div（每家的独子）
+		$('button:eq(4)').click(function(){
+			$('div:only-of-type').css('border', '5px solid blue');
+		});
+
+		// 选择section下的唯一p（每家的独女）
+		$('button:eq(5)').click(function(){
+			$('p:only-of-type').css('border', '5px solid blue');
+		});
+
+		// 选择section下的唯一div和唯一p（每家的独子和独女）
+		$('button:eq(6)').click(function(){
+			$('div:only-of-type,p:only-of-type').css('border', '5px solid blue');
+		});
+
+		// 选择section下的第一个孩子（每家的第一个孩子）
+		$('button:eq(7)').click(function(){
+			// $('section>*:first-child').css('border', '5px solid blue');
+			// 第一个孩子:
+			// 	1.第一个孩子是男性的情况
+			// 	2.第一个孩子是女性的情况
+			$('div:first-child,p:first-child').css('border', '5px solid blue');
+		});
+
+		// 选择section下排在奇数的div（排行奇数的儿子）
+		$('button:eq(8)').click(function(){
+			// $('div:nth-of-type(odd)').css('border', '5px solid blue');
+			// $('div:nth-of-type(2n+1)').css('border', '5px solid blue');
+			$('div:nth-of-type(2n-1)').css('border', '5px solid blue');
+		});
+
+		// 选择section下排在偶数的p（排行偶数的女儿）
+		$('button:eq(9)').click(function(){
+			// $('p:nth-of-type(even)').css('border', '5px solid blue');
+			$('p:nth-of-type(2n)').css('border', '5px solid blue');
+		});
+	})
+	</script>
+</head>
+<body>
+	我们用p表示女性，用div表示男性
+	<br>
+	<button>选择section下的第二个div（每家的第二个儿子）</button>
+	<button>选择section下的第一个p（每家的第一个女儿）</button>
+	<button>选择section下的最后一个p（每家最小的女儿）</button>
+	<button>选择section下的倒数第二个div（每家的第二小的儿子）</button>
+	<button>选择section下的唯一div（每家的独子）</button>
+	<button>选择section下的唯一p（每家的独女）</button>
+	<button>选择section下的唯一div和唯一p（每家的独子和独女）</button>
+	<button>选择section下的第一个孩子（每家的第一个孩子）</button>
+	<button>选择section下排在奇数的div（排行奇数的儿子）</button>
+	<button>选择section下排在偶数的p（排行偶数的女儿）</button>
+	<br>
+	<br>
+
+  <section>
+    <div>
+    	<img src="images/09/jialian.png">
+    </div>
+    <p>
+    	<img src="images/09/jiayingchun.png">
+    </p>
+  </section>
+
+  <section>
+    <div>
+    	<img src="images/09/jiazhu.png">
+    </div>
+    <p>
+    	<img src="images/09/jiayuanchun.png">
+    </p>
+    <div>
+    	<img src="images/09/jiabaoyu.png">
+    </div>
+    <p>
+    	<img src="images/09/jiatanchun.png">
+    </p>
+    <div>
+    	<img src="images/09/jiahuan.png">
+    </div>
+  </section>
+
+  <section>
+    <p>
+    	<img src="images/09/lindaiyu.png">
+    </p>
+  </section>
+
+</body>
+</html>

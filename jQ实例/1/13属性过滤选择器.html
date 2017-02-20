@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性过滤选择器</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 选择有alt属性的图片
+		$('button:eq(0)').click(function(){
+			$('img[alt]').css('border', '5px solid blue');
+		});
+
+		// 选择有title属性的图片
+		$('button:eq(1)').click(function(){
+			$('img[title]').css('border', '5px solid blue');
+		});
+
+		//选择title属性为"宋祖"的图片
+		$('button:eq(2)').click(function(){
+			$('img[title="宋祖"]').css('border', '5px solid blue');
+		});
+
+		// 选择title属性不为"宋祖"的图片
+		$('button:eq(3)').click(function(){
+			$('img[title!="宋祖"]').css('border', '5px solid blue');
+		});
+
+		// 选择title属性中含有"宋祖"的图片
+		$('button:eq(4)').click(function(){
+			$('img[title*="宋祖"]').css('border', '5px solid blue');
+		});
+
+		// 选择title属性中以"祖"开头的图片
+		$('button:eq(5)').click(function(){
+			$('img[title^="祖"]').css('border', '5px solid blue');
+		});
+
+		// 选择title属性中以"祖"结尾的图片
+		$('button:eq(6)').click(function(){
+			$('img[title$="祖"]').css('border', '5px solid blue');
+		});
+
+		// 选择有title、有alt属性的图片
+		$('button:eq(7)').click(function(){
+			$('img[title][alt]').css('border', '5px solid blue');
+		});
+
+		// /选择title属性中含有"祖"且有id有alt的图片
+		$('button:eq(8)').click(function(){
+			$('img[title*="祖"][id][alt]').css('border', '5px solid blue');
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>选择有alt属性的图片</button>
+    <button>选择有title属性的图片</button>
+    <button>选择title属性为"宋祖"的图片</button>
+    <button>选择title属性不为"宋祖"的图片</button>
+    <button>选择title属性中含有"宋祖"的图片</button>
+    <button>选择title属性中以"祖"开头的图片</button>
+    <button>选择title属性中以"祖"结尾的图片</button>
+    <button>选择有title、有alt属性的图片</button>
+    <button>选择title属性中含有"祖"且有id有alt的图片</button>
+    <br>
+    <br>
+	<img src="images/13/1.jpg" title="唐宗" alt="唐宗" id="唐宗">
+	<img src="images/13/2.jpg" title="宋祖" alt="宋祖" id="宋祖">
+	<img src="images/13/3.jpg" title="吴彦祖" alt="吴彦祖">
+	<img src="images/13/4.jpg" title="容祖儿">
+	<img src="images/13/5.jpg" title="王祖蓝">
+	<img src="images/13/6.jpg" title="祖海">
+	<img src="images/13/7.jpg" title="宋祖英">
+	<img src="images/13/8.jpg" title="宋祖德">
+</body>
+</html>

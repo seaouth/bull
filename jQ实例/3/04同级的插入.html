@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同级的插入</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 在 关羽 前面添加图片
+		$('button:eq(0)').click(function(){
+			/*
+			//方法一：
+			var $new_el = $('<img src="images/34/liudada.jpg" alt="">');
+
+			$('#CloseUncle').before( $new_el );
+			*/
+		
+			// 方法二：
+			// $('#CloseUncle').before( '<img src="images/34/liudada.jpg" alt="">' );
+
+
+			// 方法三：
+			var $new_el = $('<img src="images/34/liudada.jpg" alt="">');
+
+			$new_el.insertBefore( $('#CloseUncle') );
+
+
+		});
+
+		// 在 关羽 后面添加图片
+		$('button:eq(1)').click(function(){
+			
+			/*
+			//方法一：
+			var $new_el = $('<img src="images/34/zhangsansan.jpg" alt="">');
+			$('#CloseUncle').after( $new_el );
+			*/
+		
+			//方法二：
+			// $('#CloseUncle').after( '<img src="images/34/zhangsansan.jpg" alt="">' );
+
+			// 方法三：
+			var $new_el = $('<img src="images/34/zhangsansan.jpg" alt="">');
+			$new_el.insertAfter( $('#CloseUncle') );
+
+
+		});
+	})
+	</script>
+</head>
+<body>
+	
+	<button>在 关羽 前面添加图片</button>
+	<button>在 关羽 后面添加图片</button><br><br>
+
+	
+	<img src="images/34/guanyu.jpg" alt="" id="CloseUncle">
+	<!-- Don't play a knife before Close Uncle. -->
+</body>
+</html>

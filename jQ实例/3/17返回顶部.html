@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回顶部</title>
+	<style>
+		*{margin:0;padding:0}
+		.content{
+			margin:100px auto;
+			display:block;
+		}
+		#nav{
+			width: 36px;
+			height: 65px;
+			background: url('images/45/nav.jpg');
+			position:fixed;
+			right:50px;
+			bottom:50px;
+			display:none;
+			cursor:pointer;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当窗口滚动的时候，判断：如果窗口上方隐藏部分的高度>=一屏高度的时候，小火箭应该显示
+		$(window).scroll(function(){
+			if( $(window).scrollTop()>=$(window).height() ){
+				$('#nav').fadeIn(500);
+			}else{
+				$('#nav').fadeOut(500);
+			}
+		});
+
+		//当单击小火箭的时候，返回顶部
+		$('#nav').click(function(){
+			// $(window).scrollTop(0);   //让上方隐藏部分的高度为0
+			// $('body').animate({scrollTop:0}, 500);   //chrome中的写法
+			// $('html').animate({scrollTop:0}, 500);   //firefox和IE的写法
+			$('html,body').animate({scrollTop: 0 }, 500);
+
+		});
+	})
+	</script>
+</head>
+<body>
+	<img src="images/45/bg.jpg" alt="" class="content">
+	<div id="nav"></div>
+</body>
+</html>

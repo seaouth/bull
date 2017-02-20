@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤筛选选择器</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//由于jQuery对象和原生JS中的对象在使用方法生有所不同。所以建议在命名jQuery对象的时候，以$开头（行业规范）
+		var $img = $('img');   //模拟：$img是计算机算完给我们的，或者是同事算完给我们的
+
+
+		// 选择第二张图片
+		$('button:eq(0)').click(function(){
+			// $('img:eq(1)').css('border', '5px solid red');
+			$img.filter(':eq(1)').css('border', '5px solid red');
+		});
+
+		// 选择除第二张外的图片
+		$('button:eq(1)').click(function(){
+			// $('img:not(:eq(1))').css('border', '5px solid red');
+			$img.filter(':not(:eq(1))').css('border', '5px solid red');
+		});
+
+		// 选择类为man的图片
+		$('button:eq(2)').click(function(){
+			// $('img.man').css('border', '5px solid red');
+			$img.filter('.man').css('border', '5px solid red');
+		});
+
+		// 选择id为qiuju的图片
+		$('button:eq(3)').click(function(){
+			// $('img#qiuju').css('border', '5px solid red');
+			$img.filter('#qiuju').css('border', '5px solid red');
+		});
+
+		// 选择从第3个(索引值为2)到第6个(索引值为5)的图片（包括3和6）
+		$('button:eq(4)').click(function(){
+			// $('img:lt(6):gt(1)').css('border', '5px solid red');
+			// $img.filter(':lt(6):gt(1)').css('border', '5px solid red');
+			$img.filter(function(index){   //形式参数index，表示当前被筛选元素的索引值
+				if(index>=2 && index<=5){
+					return true;     //筛选保留的元素，return true即可
+				}
+			}).css('border', '5px solid red');
+		});
+
+		// 选择第二张图片(快捷方式)
+		$('button:eq(5)').click(function(){
+			// $('img:eq(1)').css('border', '5px solid red');
+			// $img.filter(':eq(1)').css('border', '5px solid red');
+			$img.eq(1).css('border', '5px solid red');
+		});
+
+		// 选择除第二张外的图片(快捷方式)
+		$('button:eq(6)').click(function(){
+			// $('img:not(:eq(1))').css('border', '5px solid red');
+			// $img.filter(':not(:eq(1))').css('border', '5px solid red');
+			$img.not(':eq(1)').css('border', '5px solid red');
+		});
+
+		// 选择从第3个(索引值为2)到第6个(索引值为5)的图片（包括3和6）(slice)
+		$('button:eq(7)').click(function(){
+			// $('img:lt(6):gt(1)').css('border', '5px solid red');
+			// $img.filter(':lt(6):gt(1)').css('border', '5px solid red');
+			/*$img.filter(function(index){   //形式参数index，表示当前被筛选元素的索引值
+				if(index>=2 && index<=5){
+					return true;     //筛选保留的元素，return true即可
+				}
+			}).css('border', '5px solid red');*/
+				//大于等于2小于6
+			$img.slice(2, 6).css('border', '5px solid red');
+		});
+
+		// 判断第7张图片的id是否为qiuju
+		$('button:eq(8)').click(function(){
+			alert( $('img:eq(6)').is('#qiuju') );
+		});
+
+		// 判断最后一张图片有无man的类
+		$('button:eq(9)').click(function(){
+			alert( $('img:last').is('.man') );
+		});
+
+	})
+	</script>
+</head>
+<body>
+	<button>选择第二张图片</button>
+	<button>选择除第二张外的图片</button>
+	<button>选择类为man的图片</button>
+	<button>选择id为qiuju的图片</button>
+	<button>选择从第3个到第6个的图片（包括3和6）</button>
+	<button>选择第二张图片(快捷方式)</button>
+	<button>选择除第二张外的图片(快捷方式)</button>
+	<button>选择从第3个到第6个的图片（包括3和6）(slice)</button>
+	<button>判断第7张图片的id是否为qiuju</button>
+	<button>判断最后一张图片有无man的类</button>
+	<br>
+	<br>
+	<img src="images/16/1.jpg" alt="">
+	<img src="images/16/2.jpg" alt="" class="man">
+	<img src="images/16/3.jpg" alt="">
+	<img src="images/16/4.jpg" alt="">
+	<img src="images/16/5.jpg" alt="">
+	<img src="images/16/6.jpg" alt="">
+	<img src="images/16/7.jpg" alt="" id="qiuju">
+	<img src="images/16/8.jpg" alt="" class="man">
+	<img src="images/16/9.jpg" alt="">
+	<img src="images/16/10.jpg" alt="" class="man">
+</body>
+</html>

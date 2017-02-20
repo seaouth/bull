@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>悬浮的小广告</title>
+	<style>
+		*{margin:0;padding:0}
+		.content{
+			margin:0 auto;
+			display:block;
+		}
+		.ad{
+			width: 100px;
+			height: 250px;
+			background-color: orange;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		.ad span{
+			font-size: 20px;
+			cursor:pointer;
+		}
+		.ad-right{
+			right:0;
+			left:auto;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var scroll_fun = function(){
+			var ad_top = $(window).scrollTop() + ($(window).height()-$('.ad').height())/2;
+
+			$('.ad').stop(true).animate({top:ad_top}, 1000);
+		}
+
+		scroll_fun();
+
+		//当窗口滚动的时候，小广告跟随窗口一起滚动
+		$(window).scroll(scroll_fun);
+	})
+	</script>
+</head>
+<body>
+	<img src="images/44/content.png" alt="" class="content">
+	<div class="ad"><span>&times;</span></div>
+	<div class="ad ad-right"><span>&times;</span></div>
+</body>
+</html>

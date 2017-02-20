@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝商品类展示</title>
+	<style>
+		*{margin:0;padding:0}
+		.category{
+			width: 600px;
+			padding:10px;
+			border: 1px solid #000;
+			margin:100px auto 0;
+		}
+		.category ul{
+			overflow:hidden;
+		}
+		.category li{
+			width: 200px;
+			height: 30px;
+			line-height: 30px;
+			list-style-type:none;
+			float: left;
+			text-align: center;
+		}
+		.category p{
+			width: 200px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid #000;
+			text-align: center;
+			cursor:pointer;
+			margin:0 auto;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// $('li:lt(12):gt(2)').css('background', 'yellow');
+		$('.category li:gt(2):not(:last)').hide();
+
+		//当单击“显示所有内容”的时候，显示隐藏的li
+		$('.category p').click(function(){
+			$('.category li:gt(2):not(:last)').slideToggle();
+
+			//判断：如果是“显示所有内容”,就变为“隐藏所有内容”.否则，就变为”显示所有内容“
+			if( $('.category p').html()=='显示所有内容' ){
+				$('.category p').html('隐藏所有内容');
+			}else{
+				$('.category p').html('显示所有内容');
+			}
+		});
+	})
+	</script>
+</head>
+<body>
+	<div class="category">
+		<ul>
+			<li>佳能</li>
+		    <li>索尼</li>
+		    <li>三星</li>
+		    <li>尼康</li>
+		    <li>松下</li>
+		    <li>卡西欧</li>
+		    <li>富士</li>
+		    <li>可达</li>
+		    <li>宾得</li>
+		    <li>理光</li>
+		    <li>奥林巴斯</li>
+		    <li>明基</li>
+		    <li>显示其他品牌</li>
+		</ul>
+		<p>显示所有内容</p>
+	</div>
+</body>
+</html>

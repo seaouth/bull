@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>悬浮的小广告</title>
+	<style>
+		*{margin:0;padding:0}
+		.content{
+			margin:20px auto;
+			display:block;
+		}
+		.ad{
+			position:fixed;
+			left:0;
+			top:50%;
+			border: 1px solid #000;
+			margin-top:-125px;
+		}
+		.ad span{
+			position:absolute;
+			top:0;
+			right:0;
+			font-size: 20px;
+			cursor:pointer;
+		}
+		.ad-right{
+			right:0;
+			left:auto;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击关闭按钮的时候，关闭广告
+		$('.ad span').click(function(){
+			// $('.ad').hide();   错误的做法
+			// $('.ad:eq(0)').hide();   错误的做法
+			// $(this).hide();   错误的做法
+			$(this).parent().hide(500);
+		});
+	})
+	</script>
+</head>
+<body>
+	<img src="images/18/content.jpg" alt="" class="content">
+	<div class="ad">
+		<a href=""><img src="images/18/left.jpg" alt=""></a>
+		<span>&times;</span>
+	</div>
+	<div class="ad ad-right">
+		<a href=""><img src="images/18/right.jpg" alt=""></a>
+		<span>&times;</span>
+	</div>
+</body>
+</html>

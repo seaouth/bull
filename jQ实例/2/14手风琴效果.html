@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴效果</title>
+	<style>
+		*{margin:0;padding:0}
+		.shoufengqin{
+			width: 1200px;
+			height: 300px;
+			border: 1px solid #000;
+			margin:100px auto 0;
+			overflow:hidden;
+		}
+		.shoufengqin ul{
+			width:10000px;
+		}
+		.shoufengqin li{
+			list-style-type:none;
+			width:200px;
+			height:300px;
+			float: left;
+			cursor:pointer;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当鼠标移动到某个li的时候，它变为最大宽，它的邻居变为最小宽
+		$('.shoufengqin li').mouseover(function(){
+			$(this).stop(true).animate({width:500}, 500)
+								.siblings().stop(true).animate({width:140}, 500);
+		});
+
+		//当鼠标离开li的时候，都变为默认宽
+		$('.shoufengqin li').mouseout(function(){
+			$('.shoufengqin li').stop(true).animate({width:200}, 500);
+		});
+	})
+	</script>
+</head>
+<body>
+	<div class="shoufengqin">
+		<ul>
+			<li><img src="images/28/01.jpg" alt=""></li>
+			<li><img src="images/28/02.jpg" alt=""></li>
+			<li><img src="images/28/03.jpg" alt=""></li>
+			<li><img src="images/28/04.jpg" alt=""></li>
+			<li><img src="images/28/05.jpg" alt=""></li>
+			<li><img src="images/28/06.jpg" alt=""></li>
+		</ul>
+	</div>
+</body>
+</html>

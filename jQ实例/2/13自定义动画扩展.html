@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义动画扩展</title>
+	<style>
+		body{
+			height: 1000px;
+		}
+		div{
+			font-size: 12px;
+			text-align: center;
+			border:0px solid blue;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//文字变化
+		$('button:eq(0)').click(function(){
+			$('div').animate({'font-size':30, 'border-width':10, paddingTop: 50, paddingBottom:50}, 1000);
+		});
+
+		// 居中变化
+		$('button:eq(1)').click(function(){
+			$('img:eq(0)').animate({width:0, marginLeft:200}, 1000)
+							.animate({width:400, marginLeft:0}, 1000);
+		});
+
+		// 左右变化
+		$('button:eq(2)').click(function(){
+			// $('img:eq(1)').animate({width:'hide'}, 1000).animate({width:'show'}, 1000);
+			$('img:eq(1)').animate({width:'toggle'}, 1000);
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>文字变化</button>
+	<button>居中变化</button>
+	<button>左右变化</button>
+	<div>熟睡梦中惊坐起<br>台上老师在看你</div>
+	<img src="images/27/1.jpg" width="400" height="357" alt=""><br><br>
+	<img src="images/27/2.jpg" width="400" height="249" alt="">
+</body>
+</html>

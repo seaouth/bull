@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS版的无缝动画</title>
+	<style>
+		*{margin:0;padding:0}
+		body{
+			background-color: #000;
+		}
+		div{
+			width: 600px;
+			height: 200px;
+			margin:100px auto 0;
+			position:relative;
+			overflow:hidden;
+		}
+		div ul{
+			width:1000%;
+			position:absolute;
+			left:0;
+			top:0;
+			animation:move 10s linear 0s infinite;
+		}
+		div:hover ul{
+			/*animation:move 10s linear 0s infinite paused;*/
+			animation-play-state:paused;
+		}
+		div li{
+			float: left;
+			list-style-type:none;
+		}
+
+		@keyframes move{
+			from{
+				left:0;
+			}
+			to{
+				left:-1200px;
+			}
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当页面加载完毕的时候，复制前两个图片区域，放在ul内部的最后
+		var $new_lis = $('ul>li:lt(2)').clone();
+
+		$('ul').append( $new_lis );
+	})
+	</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><img src="images/38/1.jpg" alt=""></li>
+			<li><img src="images/38/2.jpg" alt=""></li>
+			<li><img src="images/38/3.jpg" alt=""></li>
+			<li><img src="images/38/4.jpg" alt=""></li>
+		</ul>
+	</div>
+</body>
+</html>

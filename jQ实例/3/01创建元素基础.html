@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建元素基础</title>
+	<style>
+		ul,div{
+			border: 1px solid #000;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 给 第一个ul 添加 li
+		$('button:eq(0)').click(function(){
+			//方法一：
+
+			//创建元素
+			var $new_el = $('<li></li>');   //新创建的元素是孤儿元素
+
+			//将新创建的元素添加到文档中的指定位置
+			$('ul:eq(0)').append($new_el);
+
+		});
+
+		// 给 第二个ul 添加 li
+		$('button:eq(1)').click(function(){
+
+			//方法二：
+			$('ul:eq(1)').append( '<li></li>' );
+
+		});
+
+		// 给 div 添加图片
+		$('button:eq(2)').click(function(){
+			//方法三：
+			var $new_el = $('<img src="images/31.jpg">');
+
+			$new_el.appendTo( $('div') );
+
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>给 第一个ul 添加 li </button>
+	<button>给 第二个ul 添加 li </button>
+	<button>给 div 添加图片</button>
+
+	<ul>第一个ul</ul>
+	<ul>第二个ul</ul>
+	<div>div</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素的滚动坐标值</title>
+	<style>
+		*{margin:0;padding:0}
+		#fixed-box{
+			width: 100px;
+			height: 100px;
+			background-color: #eee;
+			border: 1px solid #000;
+			position:fixed;
+			left:0;
+			top:0;
+		}
+		#scroll-box{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:100px auto 0;
+			overflow:auto;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当scroll-box滚动的时候，将它的滚动坐标值显示在fixed-box里面
+		$('#scroll-box').scroll(function(){
+			$(this).scrollLeft();   //滚动坐标值的横坐标
+			$(this).scrollTop();   //滚动坐标值的纵坐标
+
+			// console.log($(this).scrollLeft(), $(this).scrollTop());
+			$('#fixed-box').html( $(this).scrollLeft()+', '+$(this).scrollTop() );
+		});
+	})
+	</script>
+</head>
+<body>
+	<div id="fixed-box"></div>
+	<div id="scroll-box">
+		<img src="images/43.jpg" alt="">
+	</div>
+</body>
+</html>

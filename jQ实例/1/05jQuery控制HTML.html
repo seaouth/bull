@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery控制HTML</title>
+	<style>
+		div{
+			width: 130px;
+			background-color: #eee;
+			border: 1px solid #000;
+			padding:50px;
+			margin:20px auto 0;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 修改
+		$('button:eq(0)').click(function(){
+			/*$('div').html('<h1>宁哥来</h1>\
+							<p>日映宫城雾半开,</p>\
+							<p>太真帘下畏人猜。</p>\
+							<p>黄翻绰指向西树,</p>\
+							<p>不信宁哥回马来。</p>');*/
+			$('div').html('<h1>宁哥来</h1>'+
+							'<p>日映宫城雾半开,</p>'+
+							'<p>太真帘下畏人猜。</p>'+
+							'<p>黄翻绰指向西树,</p>'+
+							'<p>不信宁哥回马来。</p>');
+		});
+
+		// 访问
+		$('button:eq(1)').click(function(){
+			alert($('div').html());
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>修改</button>
+	<button>访问</button>
+	<div>宁哥来 -日映宫城雾半开,太真帘下畏人猜。黄翻绰指向西树,不信宁哥回马来。</div>
+</body>
+</html>

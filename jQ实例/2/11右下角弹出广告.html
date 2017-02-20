@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>右下角弹出广告</title>
+	<style>
+		*{margin:0;padding:0}
+		body{
+			height: 1000px;
+		}
+		.ad{
+			width: 278px;
+			height: 188px;
+			border: 1px solid #000;
+			position:fixed;
+			right:0;
+			bottom:0;
+			display:none;
+		}
+		.ad span{
+			position:absolute;
+			right:0;
+			top:0;
+			font-size: 20px;
+			cursor:pointer;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		function show(){
+			$('.ad').slideToggle(800).fadeOut(500).fadeIn(500);
+		}
+
+		//当页面加载完毕的时候，让广告显示
+		// $('.ad').slideToggle(800).fadeOut(500).fadeIn(500);
+		show();
+
+		//当单击“关闭”的时候，关闭广告
+		$('.ad span').click(function(){
+			$('.ad').slideToggle(800);
+
+			//隔几秒，再让广告显示
+			setTimeout(show, 2000);
+		});
+	})
+	</script>
+</head>
+<body>
+	<div class="ad">
+		<a href=""><img src="images/25.jpg" alt=""></a>
+		<span>&times;</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本操作</title>
+	<style>
+		div{
+			width: 130px;
+			padding:50px;
+			margin:20px auto 0;
+			border: 1px solid #000;
+			background-color: #eee;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 修改div中的html
+		$('button:eq(0)').click(function(){
+			$('div').html('<h1>如意娘</h1>\
+							<p>看朱成碧思纷纷，</p>\
+							<p>憔悴支离为忆君。</p>\
+							<p>不信比来长下泪，</p>\
+							<p>开箱验取石榴裙。</p>');
+		});
+
+		// 访问div中的html
+		$('button:eq(1)').click(function(){
+			alert( $('div').html() );
+		});
+
+		// 访问div中的纯文本
+		$('button:eq(2)').click(function(){
+			alert( $('div').text() );
+			console.log( $('div').text() );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>修改div中的html</button>
+	<button>访问div中的html</button>
+	<button>访问div中的纯文本</button>
+
+	<div>如意娘-看朱成碧思纷纷，憔悴支离为忆君。不信比来长下泪，开箱验取石榴裙。</div>
+</body>
+</html>

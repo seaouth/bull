@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style>
+		ul{
+
+		}
+		ul li{
+			height: 40px;
+			line-height: 40px;
+			background-color: #eee;
+			border: 1px solid #000;
+		}
+		li span{
+			float: right;
+			cursor:pointer;
+			font-size: 30px;
+		}
+	</style>
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击按钮的时候，添加一个新的li
+		$('button').bind('click', function(e){
+			var $new_li = $('<li>new<span>&times;</span></li>');
+
+			$('ul').prepend($new_li);
+		});
+
+
+
+		// console.log( $('li span') );
+		//当单击叉号的时候，删除相应的li
+		/*$('li span').bind('click', function(e){
+			$(this).parent().remove();
+		});*/
+
+		//事件委托
+		$('ul').delegate('li span', 'click', function(e){
+			$(this).parent().remove();
+		});
+
+		//取消事件委托
+		// $('ul').undelegate();
+
+	})
+	</script>
+</head>
+<body>
+	<button>添加一个新的li</button>
+	<ul>
+
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+		<li><span>&times;</span></li>
+	</ul>
+</body>
+</html>

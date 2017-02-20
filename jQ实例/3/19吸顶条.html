@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>吸顶条</title>
+	<style>
+		*{margin:0;padding:0}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin:100px;
+		}
+		.box{
+			background-color: green;
+			margin:0;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var box_top = $('.box').offset().top;   //绿盒子文档坐标值的纵坐标，需要提前保存。因为吸顶以后，这个值会变化。
+
+		//当窗口滚动的时候，如果绿色盒子贴上边，那么就吸顶；否则，就处于标准流
+		$(window).scroll(function(){
+			// console.log($('.box').offset().top);
+
+			//如果窗口滚动坐标值的纵坐标>=绿盒子文档坐标值的纵坐标，绿盒子应该吸顶
+			if( $(window).scrollTop()>=box_top ){
+				$('.box').css({position:'fixed', top:0});
+			}else{
+				$('.box').css({position:'static'});
+			}
+		});
+	})
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div style="padding:20px">
+		<div class="box"></div>
+	</div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

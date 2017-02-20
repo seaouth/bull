@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素的文档坐标值</title>
+	<style>
+		.box{
+			width: 500px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:100px 0 0 300px;
+			position:relative;
+		}
+		.box img{
+			position:absolute;
+			left:120px;
+			top:50px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 获取box的文档坐标值
+		$('button:eq(0)').click(function(){
+			$('.box').offset().left;   //.box文档坐标值的横坐标
+			$('.box').offset().top;   //.box文档坐标值的纵坐标
+
+			alert( 'box的文档坐标值的横纵坐标分别为：'+$('.box').offset().left+' ，'+$('.box').offset().top );
+		});
+
+		// 获取图片相对于定位点的坐标值
+		$('button:eq(1)').click(function(){
+			$('img').position().left;   //相对于定位点的横坐标
+			$('img').position().top;   //相对于定位点的纵坐标
+
+			alert( '图片相对于定位点的坐标值横纵坐标分别为：'+$('img').position().left+','+$('img').position().top );
+		});
+	})
+	</script>
+</head>
+<body>
+	
+	<button>获取box的文档坐标值</button>
+	<button>获取图片相对于定位点的坐标值</button>
+
+	<div class="box">
+		<img src="images/46.jpg" alt="">
+	</div>
+</body>
+</html>

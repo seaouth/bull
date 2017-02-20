@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选功能</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击“全选”的时候，判断：如果“全选”是选中的，那么它下方的所有复选框都应该选上；
+		//							如果"全选"未选中，那么它下方的所有复选框都不选中
+		$('#checkAll').change(function(){
+			/*
+			//方法一：
+			 if( $(this).is(':checked')==true ){   //选中的
+				// $('input[type="checkbox"]')
+				$(':checkbox').prop('checked', true);    //attr()在访问和修改表单属性的时候，是有bug的。应该使用.prop()
+			}else{    //$(this).is(':checked')==false的时候，未选中
+				$(':checkbox').prop('checked', false);
+			}*/
+
+			//方法二：
+			$(':checkbox').prop('checked', $(this).is(':checked'));
+		});
+	})
+	</script>	
+</head>
+<body>
+	<input type="checkbox" name="" id="checkAll"><label for="checkAll">全选</label>
+	<ul>
+		<li><input type="checkbox" name="" id="football" checked><label for="football">足球</label></li>
+		<li><input type="checkbox" name="" id="basketball"><label for="basketball">篮球</label></li>
+		<li><input type="checkbox" name="" id="volleyball"><label for="volleyball">排球</label></li>
+		<li><input type="checkbox" name="" id="tennis"><label for="tennis">网球</label></li>
+		<li><input type="checkbox" name="" id="pingpang"><label for="pingpang">乒乓球</label></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>体验jQuery</title>
+	<!--script>
+		//入口函数
+		window.onload=function(){
+			//取数据模块
+			var btn  = document.getElementById('btn');
+			var tutu = document.getElementById('tutu');
+
+			//业务模块
+			//当单击按钮的时候，隐藏图片
+			btn.onclick=function(){
+				tutu.style.display = 'none';
+			}
+		}
+	</script-->
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		//入口函数
+		$(function(){
+			//当单击按钮的时候，隐藏图片
+			//jQuery的作者说过一句话：用什么,就选什么
+			$('button').click(function(){
+				//jQuery有句广告词：写得少，做得多，效果更好
+				$('img').hide(1000);
+			});
+		})
+	</script>
+</head>
+<body>
+	<button id="btn">隐藏</button>
+	<br>
+	<br>
+	<img src="images/01.gif" alt="" id="tutu">
+</body>
+</html>

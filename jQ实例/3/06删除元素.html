@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除元素</title>
+
+	<style>
+		ol,ul{
+			border: 1px solid #000;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var $img = $('<img src="images/36/1.jpg" alt="">');
+		$img.mouseover(function(){
+			$img.attr('src', 'images/36/2.jpg');
+		});
+		$img.mouseout(function(e){
+			$img.attr('src', 'images/36/1.jpg');
+		});
+
+
+		// 删除ol
+		$('button:eq(0)').click(function(){
+			$('ol').remove();
+		});
+
+		// 清空ul
+		$('button:eq(1)').click(function(){
+			$('ul').empty();
+		});
+
+		// 添加已绑定事件的图片
+		$('button:eq(2)').click(function(){
+			$('body').append( $img );
+		});
+
+		// 删除图片
+		$('button:eq(3)').click(function(){
+			$img.detach();
+		});
+	})
+	</script>
+</head>
+<body>
+	 <button>删除ol</button>
+    <button>清空ul</button>
+    <button>添加已绑定事件的图片</button>
+    <button>删除图片</button>
+    <br>
+
+	<ol>ol
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ol>
+	<ul>ul
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+</body>
+</html>

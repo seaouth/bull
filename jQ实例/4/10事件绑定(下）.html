@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<style>
+		body{
+			height: 2000px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var click_fn = function(e){
+			alert('图片被单击了1...');
+		}
+
+		// 给图片绑定click事件（快捷方式）
+		$('img').click(click_fn);
+
+		// 给图片再绑定一个click事件（原型方式）
+		/*$('img').bind('click', function(e){
+			alert('图片被单击了2...');
+		});*/
+		$('img').on('click', function(e){
+			alert('图片被单击了2...');
+		});
+
+		// 给图片绑定click、鼠标移上和鼠标离开事件（多事件绑定）
+		/*$('img').bind({
+			click:function(e){
+				alert('图片被单击了3...');
+			},
+			mouseover:function(e){
+				$(this).css({border:'5px solid blue', padding:10});
+			},
+			mouseout:function(e){
+				$(this).css({border:'0 none', padding:0});
+			}
+		});*/
+		$('img').on({
+			click:function(e){
+				alert('图片被单击了3...');
+			},
+			mouseover:function(e){
+				$(this).css({border:'5px solid blue', padding:10});
+			},
+			mouseout:function(e){
+				$(this).css({border:'0 none', padding:0});
+			}
+		});
+
+
+		// 给图片解绑第一个click事件
+		$('img').off('click', click_fn);
+
+		// 给图片解绑click事件
+		$('img').off('click');
+
+		// 给图片解绑所有事件
+		$('img').off();
+
+		// 给图片绑定事件（向事件处理函数中传递参数）
+		$('img').on('click', {key1:'value1', key2:'value2'}, function(e){
+			console.log( e.data );
+		});
+
+	})
+	</script>
+</head>
+<body>
+	1. 给图片绑定click事件（快捷方式）<br><br>
+	2. 给图片再绑定一个click事件（原型方式）<br><br>
+	3. 给图片绑定click、鼠标移上和鼠标离开事件（多事件绑定）<br><br><br>
+
+	4. 给图片解绑第一个click事件<br><br>
+	5. 给图片解绑click事件<br><br>
+	6. 给图片解绑所有事件<br><br><br>
+
+
+	7. 给图片绑定事件（向事件处理函数中传递参数）<br><br>
+
+	<img src="images/56/1.jpg" width="300" alt="">
+	<br><br>
+	<input type="text">
+</body>
+</html>

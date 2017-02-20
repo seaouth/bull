@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素属性过滤选择器</title>
+	<style type="text/css">
+	.search>input{
+		vertical-align:middle
+	}
+	.search>input[type='text']{
+		height:38px;
+	}
+	</style>
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 选择所有的表单元素
+		$('button:eq(0)').click(function(){
+			$(':input').css('outline', '2px solid red');
+		});
+
+		// 选择所有的文本框
+		$('button:eq(1)').click(function(){
+			// 选择所有的文本框
+			// $('input[type="text"]').css('outline', '2px solid red');
+			$(':text').css('outline', '2px solid red');
+		});
+
+		//选择所有的密码
+		$('button:eq(2)').click(function(){
+			// 选择所有的密码
+			// $('input[type="password"]').css('outline', '2px solid red');
+			$(':password').css('outline', '2px solid red');
+		});
+
+		// 选择所有的单选框
+		$('button:eq(3)').click(function(){
+			// 选择所有的单选框
+			// $('input[type="radio"]').css('outline', '2px solid red');
+			$(':radio').css('outline', '2px solid red');
+		});
+
+		// 选择所有的复选框
+		$('button:eq(4)').click(function(){
+			// 选择所有的复选框
+			// $('input[type="checkbox"]').css('outline', '2px solid red');
+			$(':checkbox').css('outline', '2px solid red');
+		});
+
+		// 选择所有的提交按钮
+		$('button:eq(5)').click(function(){
+			// 选择所有的提交按钮
+			// $('input[type="submit"]').css('outline', '2px solid red');
+			$(':submit').css('outline', '2px solid red');
+		});
+
+		// 选择所有的图片按钮
+		$('button:eq(6)').click(function(){
+			// 选择所有的图片按钮
+			// $('input[type="image"]').css('outline', '2px solid red');
+			$(':image').css('outline', '2px solid red');
+		});
+
+		// 选择重置按钮
+		$('button:eq(7)').click(function(){
+			// 选择重置按钮
+			// $('input[type="reset"]').css('outline', '2px solid red');
+			$(':reset').css('outline', '2px solid red');
+		});
+
+		// 选择所有的普通按钮
+		$('button:eq(8)').click(function(){
+			// 选择所有的普通按钮
+			// $('input[type="button"]').css('outline', '2px solid red');
+			$(':button').css('outline', '2px solid red');
+		});
+
+		// 选择所有的文件上传按钮
+		$('button:eq(9)').click(function(){
+			// 选择所有的文件上传按钮
+			// $('input[type="file"]').css('outline', '2px solid red');
+			$(':file').css('outline', '2px solid red');
+		});
+
+		// 获取隐藏表单元素的值
+		$('button:eq(10)').click(function(){
+			// 获取隐藏表单元素的值
+			// alert( $('input[type="hidden"]').attr('value') );
+			alert( $('input:hidden').attr('value') );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>选择所有的表单元素</button>
+	<button>选择所有的文本框</button>
+	<button>选择所有的密码</button>
+	<button>选择所有的单选框</button>
+	<button>选择所有的复选框</button>
+	<button>选择所有的提交按钮</button>
+	<button>选择所有的图片按钮</button>
+	<button>选择重置按钮</button>
+	<button>选择所有的普通按钮</button>
+	<button>选择所有的文件上传按钮</button>
+	<button>获取隐藏表单元素的值</button>
+	<br>
+	<br>
+
+
+	用户名: <input type="text" name="username">
+	<br><br>
+	密&nbsp;码: <input type="password" name="pwd"><br>
+	<br>
+	性&nbsp;别: <input type="radio" name="sex">  男   <input type="radio" name="sex"> 女  
+	<br>
+	<br>
+
+	爱&nbsp;好:  
+
+	<input type="checkbox" name="hobby" value="music"> 音乐 
+	<input type="checkbox" name="hobby" value="tennis"> 网球
+	<input type="checkbox" name="hobby" value="football"> 足球
+	<input type="checkbox" name="hobby" value="basketball"> 篮球
+	<input type="checkbox" name="hobby" value="badminton"> 羽毛球
+	<input type="checkbox" name="hobby" value="sleep"> 睡觉
+	<br>
+	<br>
+
+	学&nbsp;历: 
+	<select>
+		<option>高中</option>
+		<option>大学</option>
+		<option>研究生在读</option>
+		<option>博士想读</option>
+	</select><br>
+	<br>
+	请输入您的意见或者建议：
+	<br>
+	<textarea></textarea><br><br>
+	上传头像：
+	<input type="file" name="" id=""><br>
+	<input type="hidden" name="" value='http://www.itbull.cn'>
+	<br>
+	<br>
+	<input type="submit" value="确定">
+	<input type="reset" value="重置">
+	<input type="button" value="普通按钮">
+	<br><br>
+	<div class="search"><input type="text"><input type="image" src="images/14.jpg" alt="搜索"></div>
+
+</body>
+</html>

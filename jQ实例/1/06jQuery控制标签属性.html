@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery控制标签属性</title>
+	<style>
+		.shitihua{
+			width: 600px;
+			height: 400px;
+			background-color: orange;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 修改
+		$('button:eq(0)').click(function(){
+			$('div').attr('class', 'shitihua');
+			$('a').attr('href', 'http://www.itbull.cn');
+			$('img').attr('src', 'images/06/06another.jpg');
+		});
+
+		// 访问
+		$('button:eq(1)').click(function(){
+			alert( 'div的id为:'+$('div').attr('id') );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>修改</button>
+	<button>访问</button>
+	<div id="box">
+		<a href="#"><img src="images/06/06.jpg" alt=""></a>
+	</div>
+</body>
+</html>

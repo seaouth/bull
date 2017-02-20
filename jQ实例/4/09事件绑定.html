@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<style>
+		body{
+			height: 2000px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//函数的变量式定义方式
+		var click_fn = function(e){
+			alert('图片被单击了....');
+		}
+
+		// 给图片绑定click事件（快捷方式）
+		$('img').click(click_fn);
+
+		// 给图片再绑定一个click事件（原型方式）
+		$('img').bind('click', function(e){
+			alert('图片被单击了2...');
+		});
+
+		// 给图片绑定click、鼠标移上和鼠标离开事件（多事件绑定）
+		/*$('img').bind('click', function(e){
+			alert('图片被单击了3...');
+		});
+		$('img').bind('mouseover', function(e){
+			$(this).width(500);
+		});
+		$('img').bind('mouseout', function(e){
+			$(this).width(300);
+		});*/
+
+
+		$('img').bind({
+			click:function(e){
+				alert('图片被单击了3...');
+			},
+			mouseover:function(e){
+				$(this).width(500);
+			},
+			mouseout:function(e){
+				$(this).width(300);
+			}
+		});
+
+
+		// 给图片解绑第一个click事件
+		$('img').unbind('click', click_fn);
+
+
+		// 给图片解绑click事件
+		$('img').unbind('click');
+
+		// 给图片解绑所有事件
+		$('img').unbind();
+
+
+		// 只给图片绑定一次事件
+		$('img').one('click', function(){
+			alert('图片只能被单击一次');
+		});
+
+
+		$('img').unbind();
+
+		// 给图片绑定事件（向事件处理函数中传递参数）
+		/*$('img').click({k1:'v1', k2:'v2'}, function(e){
+			console.log( e.data );
+			alert('传递过来的第一个参数值为：'+e.data.k1);
+			alert('传递过来的第二个参数值为：'+e.data.k2);
+		});*/
+		$('img').bind('click', {k1:'v1', k2:'v2'},function(e){
+			console.log(e.data);
+			alert('传递过来的第一个参数值为：'+e.data.k1);
+		})
+
+
+		//给文本框绑定input事件
+		/*
+		//input事件类型没有快捷方式，只能用.bind()来绑定事件
+		$('input').input(function(e){
+			
+		});
+		*/
+		$('input').bind('input', function(e){
+			console.log( $(this).val() );
+		});
+	})
+	</script>
+</head>
+<body>
+	1. 给图片绑定click事件（快捷方式）<br><br>
+	2. 给图片再绑定一个click事件（原型方式）<br><br>
+	3. 给图片绑定click、鼠标移上和鼠标离开事件（多事件绑定）<br><br><br>
+
+	4. 给图片解绑第一个click事件<br><br>
+	5. 给图片解绑click事件<br><br>
+	6. 给图片解绑所有事件<br><br><br>
+
+	7. 只给图片绑定一次事件<br><br><br>
+
+	8. 给图片绑定事件（向事件处理函数中传递参数）<br><br>
+
+	<img src="images/56/1.jpg" width="300" alt="">
+	<br><br>
+	<input type="text">
+</body>
+</html>

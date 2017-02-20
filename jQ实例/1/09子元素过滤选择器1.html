@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素过滤选择器1</title>
+	<style>
+		div{
+			border:1px solid #ccc;
+			padding:20px;
+			margin:20px;
+		}
+		div img{
+			width:200px;
+			margin-right:20px;
+		}
+	</style>
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 选择文档根标签
+		$('button:eq(0)').click(function(){
+			// $('html').css('background', '#eee');
+			$(':root').css('background', '#eee');
+		});
+
+		// 选择 每家 的第二个孩子
+		$('button:eq(1)').click(function(){
+			$('img:nth-child(2)').css('border', '5px solid blue');
+		});
+
+		// 选择 每家 的最大的孩子
+		$('button:eq(2)').click(function(){
+			// $('img:nth-child(1)').css('border', '5px solid blue');
+			$('img:first-child').css('border', '5px solid blue');
+		});
+
+		// 选择 每家 的最小的孩子
+		$('button:eq(3)').click(function(){
+			$('img:last-child').css('border', '5px solid blue');
+		});
+
+		// 选择 每家 的倒数第二小的孩子
+		$('button:eq(4)').click(function(){
+			$('img:nth-last-child(2)').css('border', '5px solid blue');
+		});
+
+		// 选择 是独生子女的孩子
+		$('button:eq(5)').click(function(){
+			$('img:only-child').css('border', '5px solid blue');
+		});
+
+		// 选择排行偶数的孩子
+		$('button:eq(6)').click(function(){
+			// $('img:nth-child(even)').css('border', '5px solid blue');
+			$('img:nth-child(2n)').css('border', '5px solid blue');
+		});
+
+		//选择排行奇数的孩子
+		$('button:eq(7)').click(function(){
+			// $('img:nth-child(odd)').css('border', '5px solid blue');
+			// $('img:nth-child(2n+1)').css('border', '5px solid blue');
+			$('img:nth-child(2n-1)').css('border', '5px solid blue');
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>选择文档根标签</button>
+  <button>选择 每家 的第二个孩子</button>
+  <button>选择 每家 的最大的孩子</button>
+  <button>选择 每家 的最小的孩子</button>
+  <button>选择 每家 的倒数第二小的孩子</button>
+  <button>选择 是独生子女的孩子</button>
+  <button>选择排行偶数的孩子</button>
+  <button>选择排行奇数的孩子</button>
+  <br>
+  <br>
+
+  <div>
+    <img src="images/09/jialian.png">
+    <img src="images/09/jiayingchun.png">
+  </div>
+
+  <div>
+    <img src="images/09/jiazhu.png">
+    <img src="images/09/jiayuanchun.png">
+    <img src="images/09/jiabaoyu.png">
+    <img src="images/09/jiatanchun.png">
+    <img src="images/09/jiahuan.png">
+  </div>
+
+  <div>
+    <img src="images/09/lindaiyu.png">
+  </div>
+
+</body>
+</html>

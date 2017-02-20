@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复制元素</title>
+	<style>
+		ul,ol{
+			border: 1px solid #000;
+		}
+	</style>
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 将ul中的li复制到ol中
+		$('button').click(function(){
+			var $lis = $('ul>li').clone();   //复制后的元素依然为孤儿元素
+
+			$('ol').append( $lis );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>将ul中的li复制到ol中</button>
+	<br><br>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<ol></ol>
+</body>
+</html>

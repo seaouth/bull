@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单事件</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			background-color: #000;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当表单域form提交时
+		$('form').submit(function(e){
+			//判断：文本框和文本域中的内容如果没有输入，则不允许提交
+			var text_txt = $.trim( $('input[type="text"]').val() );
+			var textarea_txt = $.trim( $('textarea').val() );
+
+			if( text_txt=='' || textarea_txt=='' ){
+				alert('您输入的内容有误');
+				//表单form默认是带提交事件的，只要一单击submit按钮，就会提交表单
+				//如果不允许提交表单,那么禁止默认事件
+				return false;
+			}
+		});
+
+		//当拾色器的颜色值发生变化时，让div的背景色也随之变化
+		$('input[type="color"]').change(function(e){
+			// alert( $(this).val() );
+			$('div').css('background-color', $(this).val());
+		});
+	})
+	</script>
+</head>
+<body>
+	<br>
+	<form action="http://www.itbull.cn">
+		<input type="text">
+		<br><br>
+		<textarea name="" id="" cols="30" rows="10"></textarea>
+		<br><br>
+		<input type="submit" value="提交">
+	</form>
+	<br><br>
+
+	<input type="color" name="" id="">
+	<br><br>
+	<div></div>
+
+	<br><br>
+
+submit：<br><br>
+当提交表单时，会发生 submit 事件。<br><br><br>
+
+change：<br><br>
+当元素的值发生改变时，会发生 change 事件。
+<br><br>
+
+</body>
+</html>

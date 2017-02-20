@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>窗口的滚动坐标值</title>
+	<style>
+		*{margin:0;padding:0}
+		#fixed-box{
+			width: 100px;
+			height: 100px;
+			background-color: #eee;
+			border: 1px solid #000;
+			position:fixed;
+			left:0;
+			top:0;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当窗口滚动的时候，将它的滚动坐标值显示在fixed-box里面
+		$(window).scroll(function(){
+			$(this).scrollLeft();
+			$(this).scrollTop();
+
+			$('#fixed-box').html( $(this).scrollLeft()+', '+$(this).scrollTop() );
+		});
+	})
+	</script>
+</head>
+<body>
+	<div id="fixed-box"></div>
+	<img src="images/43/main.png" width="1500" alt="">
+</body>
+</html>

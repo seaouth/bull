@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件触发</title>
+	<style>
+		.login-btn{
+			display:block;
+			width: 130px;
+			height: 45px;
+			line-height: 45px;
+			background-color: #22a6d2;
+			color:white;
+			text-align: center;
+			cursor:pointer;
+			-webkit-border-radius:10px;
+			-ms-border-radius:10px;
+			-moz-border-radius:10px;
+			-o-border-radius:10px;
+			border-radius:10px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当表单提交的时候，判断：如果用户名或密码没有填写，就不允许提交
+		$('form').bind('submit', function(e){
+			var username = $.trim( $(':text').val() );
+			var pwd      = $(':password').val();
+
+			if( username=='' || pwd=='' ){
+				alert('用户名或密码没有填写');
+
+				//禁止表单提交的默认事件
+				return false;
+			}
+		});
+
+		//只有submit按钮才可以提交表单，a是不可以提交表单的。
+		//我们可以在单击a的时候，触发表单的提交事件
+		$('.login-btn').click(function(e){
+			// 方法一：
+			// $('form').submit();   //触发表单的提交事件
+			
+			// 方法二：
+			$('form').trigger('submit');
+
+			//方法三：
+			// $('form').triggerHandler('submit');
+		});
+	})
+	</script>
+</head>
+<body>
+	<br><br>
+	<form action="http://www.itbull.cn">
+		用户名：<input type="text" name="username">
+		<br><br>
+		密　码：<input type="password" name="pwd" id="">
+		<br><br>
+		<!-- <input type="submit" value="登录"> -->
+		<a class="login-btn">登录</a>
+	</form>
+</body>
+</html>

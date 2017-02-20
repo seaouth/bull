@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝广告</title>
+	<style>
+		*{margin:0;padding:0}
+		#ad{
+			width: 250px;
+			height: 250px;
+			border: 1px solid #edafab;
+			margin:100px auto 0;
+			overflow:hidden;
+		}
+		#ad ol{
+			width: 49px;
+			border-right: 1px solid #edafab;
+			float: left;
+		}
+		#ad ol li{
+			list-style-type:none;
+			height: 27px;
+			border-bottom: 1px solid #edafab;
+			line-height: 27px;
+			text-align: center;
+			font-size: 12px;
+			background-color: #fcf2f1;
+			cursor:pointer;
+		}
+		#ad ol li.on{
+			background: url('images/60/bg.gif');
+		}
+		#ad ul{
+			list-style-type:none;
+			float: left;
+		}
+		#ad ul li{
+			display:none;
+		}
+		#ad ul li.on{
+			display:block;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var idx = 0;   //当前角标的索引值
+		var timer;
+		var $ol_lis = $('#ad ol li');
+		var $ul_lis = $('#ad ul li');
+
+
+		//当鼠标移动到角标的时候，鼠标移动到哪个上面，那个加红色背景（加on类），其他都不加红色背景。
+		//让对应的图片区域显示（加on类），其他的图片区域都隐藏
+		$ol_lis.mouseover(function(e){
+			//角标的工作
+			$(this).addClass('on').siblings().removeClass();
+
+			//图片的工作
+			//图片区域通过索引值和角标一一对应：所以只要得到了角标的索引值，就是对应图片区域的索引值
+			idx = $(this).index();   //角标的索引值，也就是对应图片区域的索引值
+			$ul_lis.eq(idx).addClass('on').siblings().removeClass('on');
+		});
+
+		//当鼠标离开广告区域的时候，每隔三秒，播放下一个角标
+		$('#ad').mouseleave(function(e){
+			timer = setInterval(function(){
+				idx++;
+				if(idx>=$ol_lis.length){
+					idx = 0;
+				}
+
+				//角标的工作
+				$ol_lis.eq(idx).addClass('on').siblings().removeClass();
+
+				//图片的工作
+				$ul_lis.eq(idx).addClass('on').siblings().removeClass('on');
+			}, 3000);
+		}).mouseenter(function(e){  //当鼠标移上广告区域的时候，停止广告自动播放
+			clearInterval(timer);
+		}).mouseleave();  //触发鼠标离开广告区域的事件，让广告自动播放
+	})
+	</script>
+</head>
+<body>
+	<div id="ad">
+		<ol>
+			<li class="on">女靴</li>
+			<li>雪地靴</li>
+			<li>冬裙</li>
+			<li>呢大衣</li>
+			<li>毛衣</li>
+			<li>棉服</li>
+			<li>女裤</li>
+			<li>羽绒服</li>
+			<li>牛仔裤</li>
+		</ol>
+		<ul>
+			<li class="on"><a href=""><img src="images/60/女靴.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/雪地靴.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/冬裙.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/呢大衣.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/毛衣.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/棉服.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/女裤.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/羽绒服.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/60/牛仔裤.jpg" alt=""></a></li>
+		</ul>
+	</div>
+</body>
+</html>

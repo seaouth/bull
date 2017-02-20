@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery控制CSS</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 修改
+		$('button:eq(0)').click(function(){
+			$('div').css('width', 600);
+			$('div').css('height', 400);
+			$('div').css('background', 'orange');
+		});
+
+		// 访问
+		$('button:eq(1)').click(function(){
+			alert('宽度为: '+$('div').css('width'));
+			alert('高度为: '+$('div').css('height'));
+			alert('背景色为: '+$('div').css('background-color'));
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>修改</button>
+	<button>访问</button>
+	<br><br>
+	<div>
+		<img src="images/03.jpg" alt="">
+	</div>
+</body>
+</html>

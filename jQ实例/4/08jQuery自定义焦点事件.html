@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>焦点事件</title>
+	<style>
+		*{margin:0;padding:0}
+		#search-box{
+			width: 258px;
+			height: 40px;
+			margin:100px auto 0;
+		}
+		#search-box input{
+			border:0 none;
+			outline:0 none;
+			/*vertical-align: top;*/
+			float: left;
+		}
+		#search-box input[type="text"]{
+			width: 200px;
+			height: 40px;
+			background: url('images/49/left.jpg');
+			color:#ccc;
+			padding-left: 16px;
+		}
+		#search-box input[type="submit"]{
+			width: 42px;
+			height: 40px;
+			background: url('images/49/right.jpg');
+			cursor:pointer;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		/*
+		//当搜索框获取焦点时，判断：如果里面的内容为“请输入内容”时，需要置空
+		$('#search-box input[type="text"]').focusin(function(e){
+			if( $(this).val()=='请输入内容' ){
+				$(this).val('');
+				$(this).css('color', '#000');
+			}
+		});
+
+		//当搜索框失去焦点的时候，判断：如果里面的内容为空，需要设置为“请输入内容”
+		$('#search-box input[type="text"]').focusout(function(e){
+			if( $(this).val()=='' ){
+				$(this).val('请输入内容');
+				$(this).css('color', '#ccc');
+			}
+		});
+		*/
+	
+		//当搜索框获取焦点时，判断：如果里面的内容为“请输入内容”时，需要置空
+		$('#search-box').focusin(function(e){
+			if( $('#search').val()=='请输入内容' ){
+				$('#search').val('');
+				$('#search').css('color', '#000');
+			}
+		});
+
+		//当搜索框失去焦点的时候，判断：如果里面的内容为空，需要设置为“请输入内容”
+		$('#search-box').focusout(function(e){
+			if( $('#search').val()=='' ){
+				$('#search').val('请输入内容');
+				$('#search').css('color', '#ccc');
+			}
+		});
+	})
+	</script>
+</head>
+<body>
+	<div id="search-box">
+		<input type="text" value="请输入内容" id="search">
+		<input type="submit" value="">
+	</div>
+</body>
+</html>

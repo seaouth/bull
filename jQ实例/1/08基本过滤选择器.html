@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本过滤选择器</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 选择第一张图片
+		$('button:eq(0)').click(function(){
+			// $('img:eq(0)').css('border', '5px solid blue');
+			$('img:first').css('border', '5px solid blue');
+		});
+
+		// 选择最后一张图片
+		$('button:eq(1)').click(function(){
+			$('img:last').css('border', '5px solid blue');
+		});
+
+		// 选择所有图片排除最后一个
+		$('button:eq(2)').click(function(){
+			$('img:not(:last)').css('border', '5px solid blue');
+		});
+
+		// 选择所有图片排除第二个
+		$('button:eq(3)').click(function(){
+			$('img:not(:eq(1))').css('border', '5px solid blue');
+		});
+
+		// 选择所有索引值为偶数个的图片
+		$('button:eq(4)').click(function(){
+			$('img:even').css('border', '5px solid blue');
+		});
+
+		// 选择所有索引值为奇数个的图片
+		$('button:eq(5)').click(function(){
+			$('img:odd').css('border', '5px solid blue');
+		});
+
+		// 选择大于第5个(索引值为4)的图片
+		$('button:eq(6)').click(function(){
+			$('img:gt(4)').css('border', '5px solid blue');
+		});
+
+		// 选择小于第5个(索引值为4)的图片
+		$('button:eq(7)').click(function(){
+			$('img:lt(4)').css('border', '5px solid blue');
+		});
+
+		// 选择等于第5个(索引值为4)的图片
+		$('button:eq(8)').click(function(){
+			$('img:eq(4)').css('border', '5px solid blue');
+		});
+
+		// 选择第3个(索引值为2)到第6个(索引值为5)之间的图片（包括3和6）
+		$('button:eq(9)').click(function(){
+			// $('img:gt(1):lt(4)').css('border', '5px solid blue');
+			$('img:lt(6):gt(1)').css('border', '5px solid blue');
+		});
+
+		// 选择所有的标题标签
+		$('button:eq(10)').click(function(){
+			// $('h1,h2,h3,h4,h5,h6').css('border', '5px solid blue');
+			$(':header').css('border', '5px solid blue');
+		});
+
+		// 给最后一张图片添加切换显示
+		$('button:eq(11)').click(function(){
+			$('img:last').toggle(5000);
+		});
+
+		// 获取所有运动（(正在进行动画)）的元素
+		$('button:eq(12)').click(function(){
+			$(':animated').css('border', '5px solid red');
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>选择第一张图片</button>
+	<button>选择最后一张图片</button>
+	<button>选择所有图片排除最后一个</button>
+	<button>选择所有图片排除第二个</button>
+	<button>选择所有索引值为偶数个的图片</button>
+	<button>选择所有索引值为奇数个的图片</button>
+	<button>选择大于第5个的图片</button>
+	<button>选择小于第5个的图片</button>
+	<button>选择等于第5个的图片</button>
+	<button>选择第3个到第6个之间的图片（包括3和6）</button>
+	<button>选择所有的标题标签</button>
+	<button>给最后一张图片添加切换显示</button>
+	<button>获取所有运动(正在进行动画)的元素</button><br>
+	<br>
+
+	<img src="images/08/1.jpg" alt="">
+	<img src="images/08/2.jpg" alt="">
+	<img src="images/08/3.jpg" alt="">
+	<img src="images/08/4.jpg" alt="">
+	<img src="images/08/5.jpg" alt="">
+	<img src="images/08/6.jpg" alt="">
+	<img src="images/08/7.jpg" alt="">
+	<img src="images/08/8.jpg" alt="">
+	<img src="images/08/9.jpg" alt="">
+	<img src="images/08/10.jpg" alt="">
+
+	<h1>h1</h1>
+	<h2>h2</h2>
+	<h3>h3</h3>
+	<h4>h4</h4>
+	<h5>h5</h5>
+	<h6>h6</h6>
+</body>
+</html>

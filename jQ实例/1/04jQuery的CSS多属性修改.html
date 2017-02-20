@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的CSS多属性修改</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击按钮的时候，修改div的宽高背景色
+		$('button').click(function(){
+			// $('div').css('width', 600);
+			// $('div').css('height', 400);
+			// $('div').css('background-color', 'orange');
+
+
+			// $('div').css({'width':600, 'height':400, 'background-color':'orange'});
+			$('div').css({width:600, height:400, backgroundColor:'orange'});
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>实体化</button>
+	<div>
+		<img src="images/04.jpg" alt="">
+	</div>
+</body>
+</html>

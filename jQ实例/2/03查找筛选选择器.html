@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查找筛选选择器</title>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		$(function(){
+			// 选择li的父级
+			$('button:eq(0)').click(function(){
+				$('li').parent().css('border', '2px solid blue');
+			});
+
+			// 选择ol的子级
+			$('button:eq(1)').click(function(){
+				// $('ol>li')
+				$('ol').children().css('border', '2px solid blue');
+			});
+
+			// 选择第三个li的亲兄弟姐妹
+			$('button:eq(2)').click(function(){
+				$('li:eq(2)').siblings().css('border', '2px solid blue');
+			});
+
+			// 选择第三个li的紧邻弟弟或妹妹
+			$('button:eq(3)').click(function(){
+				// $('li:eq(2)+li')
+				$('li:eq(2)').next().css('border', '2px solid blue');
+			});
+
+			// 选择第三个li的所有弟弟妹妹
+			$('button:eq(4)').click(function(){
+				//$('li:eq(2)~li')
+				$('li:eq(2)').nextAll().css('border', '2px solid blue');
+			});
+
+			// 选择第三个li的紧邻哥哥或姐姐
+			$('button:eq(5)').click(function(){
+				$('li:eq(2)').prev().css('border', '2px solid blue');
+			});
+
+			// 选择第三个li的所有哥哥姐姐
+			$('button:eq(6)').click(function(){
+				$('li:eq(2)').prevAll().css('border', '2px solid blue');
+			});
+
+			//选择ol下的所有p
+			$('button:eq(7)').click(function(){
+				// $('ol p').css('border', '2px solid blue');
+				$('ol').find('p').css('border', '2px solid blue');
+			});
+
+			// 选择第三个li和它的所有弟弟妹妹
+			$('button:eq(8)').click(function(){
+				// addBack()  添加上选中元素之前状态的元素
+				$('li:eq(2)').nextAll().addBack().css('border', '2px solid blue');
+			});
+
+			// 选择第三个li和它的紧邻哥哥或姐姐
+			$('button:eq(9)').click(function(){
+				$('li:eq(2)').prev().addBack().css('border', '2px solid blue');
+			});
+		})
+	</script>
+</head>
+<body>
+	<button>选择li的父级</button>
+	<button>选择ol的子级</button>
+	<button>选择第三个li的亲兄弟姐妹</button>
+	<button>选择第三个li的紧邻弟弟或妹妹</button>
+	<button>选择第三个li的所有弟弟妹妹</button>
+	<button>选择第三个li的紧邻哥哥或姐姐</button>
+	<button>选择第三个li的所有哥哥姐姐</button>
+	<button>选择ol下的所有p</button>
+	<button>选择第三个li和它的所有弟弟妹妹</button>
+	<button>选择第三个li和它的紧邻哥哥或姐姐</button>
+	<br>
+	<br>
+
+	<ol>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>
+			<p>段落</p>
+			<p>段落</p>
+		</li>
+		<li></li>
+	</ol>
+
+	<p>段落</p>
+	<p>段落</p>
+</body>
+</html>

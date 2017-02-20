@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可见性选择器</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 隐藏ul下的第二、三行
+		$('button:eq(0)').click(function(){
+			$('li:lt(3):gt(0)').hide();
+		});
+
+		// 显示ul下的所有隐藏行
+		$('button:eq(1)').click(function(){
+			$('li:hidden').show();
+		});
+
+		// 给ul下的所有显示行加灰色背景
+		$('button:eq(2)').click(function(){
+			$('li:visible').css('background', 'gray');
+		});
+
+		// 获取隐藏表单元素的值
+		$('button:eq(3)').click(function(){
+			alert( $("input:hidden").attr('value') );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>隐藏ul下的第二、三行</button>
+	<button>显示ul下的所有隐藏行</button>
+	<button>给ul下的所有显示行加灰色背景</button>
+	<button>获取隐藏表单元素的值</button>
+	<br>
+	<br>
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	
+	<form action="">
+		用户名：<input type="text">
+		<input type="hidden" value="http://www.itbull.cn">  <!--隐藏的表单元素-->
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容过滤选择器</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 选择内容有“丝”的li
+		$('button:eq(0)').click(function(){
+			$('li:contains("丝")').css('border', '3px solid blue');
+		});
+
+		//选择内容含有img标签的li
+		$('button:eq(1)').click(function(){
+			$('li:has("img")').css('border', '3px solid blue');
+		});
+
+		// 选择内容为空的li
+		$('button:eq(2)').click(function(){
+			$('li:empty').css('border', '3px solid blue');
+		});
+
+		// 选择内容不为空的li
+		$('button:eq(3)').click(function(){
+			// $('li:not(:empty)').css('border', '3px solid blue');
+			$('li:parent').css('border', '3px solid blue');
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>选择内容有“丝”的li</button>
+	<button>选择内容含有img标签的li</button>
+	<button>选择内容为空的li</button>
+	<button>选择内容不为空的li</button>
+	<br>
+	<br>
+
+
+	<ul>
+		<li>玛丽蒙泰斯</li>
+		<li>波姬小丝</li>
+		<li>玛丽姬丝</li>
+		<li><img src="images/11.jpg" alt="麻辣鸡丝"></li>
+		<li></li>
+	</ul>
+</body>
+</html>

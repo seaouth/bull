@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式操作</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin:50px;
+			padding:50px;
+			font-size: 20px;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 设置box的CSS
+		$('button:eq(0)').click(function(){
+			/*$('.box').css("text-align", 'center')
+						.css('line-height', '200px')
+						.css('background-color', '#ccc');
+			*/
+			$('.box').css({textAlign: "center", lineHeight:'200px', 'background-color':'#ccc'});
+		});
+
+		// 获取box的字体大小
+		$('button:eq(1)').click(function(){
+			alert( $('.box').css('font-size') );
+		});
+
+		// 设置box的内容宽度为300
+		$('button:eq(2)').click(function(){
+			// $('.box').css('width', 300);
+			$('.box').width(300);
+
+
+		});
+
+		// 设置box的内容高度为300
+		$('button:eq(3)').click(function(){
+			// $('.box').css('height', 300);
+			$('.box').height(300);
+
+		});
+
+		// 获取box的内容宽度与高度
+		$('button:eq(4)').click(function(){
+			$('.box').css('width');   //访问宽度
+			$('.box').width();     //访问宽度
+
+			$('.box').css('height');   //访问高度
+			$('.box').height();     //访问高度
+
+			alert('box的内容宽度与高度分别为：'+$('.box').width()+' , '+$('.box').height());
+		});
+
+		// 获取box的内容宽度+内边距宽度
+		$('button:eq(5)').click(function(){
+			$('.box').innerWidth();     //内容宽度+左右padding的宽度
+			$('.box').innerHeight();     //内容高度+上下padding的高度
+
+			alert( 'box的内容宽度+内边距宽度为：'+$('.box').innerWidth() );
+		});
+
+		// 获取box的内容宽度+内边距宽度+边宽
+		$('button:eq(6)').click(function(){
+			$('.box').outerWidth();      //内容宽度+左右padding的宽度+左右border的宽度
+			$('.box').outerHeight();     //内容高度+上下padding的高度+上下border的高度
+
+			alert( 'box的内容宽度+内边距宽度+边宽为：'+$('.box').outerWidth() );
+		});
+
+		// 获取box的内容宽度+内边距宽度+边宽+外边距宽度
+		$('button:eq(7)').click(function(){
+			$('.box').outerWidth(true);      //内容宽度+左右padding的宽度+左右border的宽度+左右外边距宽度
+			$('.box').outerHeight(true);     //内容高度+上下padding的高度+上下border的高度+上下外边距的高度
+
+			alert( 'box的内容宽度+内边距宽度+边宽+外边距宽度 为：'+$('.box').outerWidth(true) );
+		});
+
+		// 获取浏览器窗口的宽高
+		$('button:eq(8)').click(function(){
+			$(window).width();   //浏览器窗口的宽度
+			$(window).height();   //浏览器窗口的高度
+
+			alert( '获取浏览器窗口的宽高 分别为：'+$(window).width()+' , '+$(window).height() );
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>设置box的CSS</button>
+	<button>获取box的字体大小</button>
+	<button>设置box的内容宽度为300</button>
+	<button>设置box的内容高度为300</button>
+	<button>获取box的内容宽度与高度</button>
+	<button>获取box的内容宽度+内边距宽度</button>
+	<button>获取box的内容宽度+内边距宽度+边宽</button>
+	<button>获取box的内容宽度+内边距宽度+边宽+外边距宽度</button>
+	<button>获取浏览器窗口的宽高</button>
+	<br><br>
+	<div class="box">我是文字，你好！</div>
+</body>
+</html>

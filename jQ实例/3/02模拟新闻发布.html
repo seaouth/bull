@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟新闻发布</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击“发布新闻”的时候，新生成一个li，放在ul中
+		$('button').click(function(){
+			
+
+			//获取用户的输入
+			var txt = $('input').prop('value');
+			// console.log(txt);
+
+			/*
+			//方法一：
+			 var $new_li = $('<li>'+txt+'</li>');
+
+			$('ul').prepend( $new_li );
+			*/
+
+			//方法二：
+			// $('ul').prepend( '<li>'+txt+'</li>' );
+
+			//方法三：
+			var $new_li = $('<li>'+txt+'</li>');
+
+			$new_li.prependTo( $('ul') );
+
+		});
+	})
+	</script>
+</head>
+<body>
+	新闻发布：<input type="text" value="qq">
+	<br>
+	<button>发布新闻</button>
+	<ul></ul>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery中的排他思想</title>
+	<!--script>
+	window.onload = function(){
+		//取数据模块
+		var imgs = document.getElementsByTagName('img');
+
+		//业务模块
+		for(var i=0; i<imgs.length; i++){
+			//当单击图片的时候，单击的那个图片加红色边框，其他都不加
+			imgs[i].onclick = function(){
+				//先排除所有
+				for(var j=0; j<imgs.length; j++){
+					imgs[j].style.border = '0 none';
+				}
+
+				//再确立自己
+				this.style.border = '5px solid red';
+			}
+		}
+	}
+	</script-->
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击图片的时候，单击的那个图片加红色边框，其他都不加
+		$('img').click(function(){
+			/*
+			$(this).css('border', '5px solid red');    //单击的那个图片加红色边框
+			$(this).siblings().css('border', '0 none');           //其他都不加
+			*/
+
+			// $(this).css('border', '5px solid red').siblings().css('border', '0 none');
+
+
+			// $(this).siblings().css('border', '0 none').end().css('border', '5px solid red');
+			
+
+		});
+	})
+	</script>
+</head>
+<body>
+	<img src="images/19/1.jpg" alt="">
+	<img src="images/19/2.jpg" alt="">
+	<img src="images/19/3.jpg" alt="">
+	<img src="images/19/4.jpg" alt="">
+	<img src="images/19/5.jpg" alt="">
+</body>
+</html>

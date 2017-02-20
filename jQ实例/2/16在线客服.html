@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在线客服</title>
+	<style>
+		*{margin:0;padding:0}
+		.content{
+			margin:50px auto;
+			display:block;
+		}
+		#kefu{
+			width: 131px;
+			height: 311px;
+			position:fixed;
+			/*right:0px;*/   /*显示*/
+			right:-131px;    /*隐藏*/
+			top:50%;
+			margin-top:-156px;
+		}
+		#kefu span{
+			width: 29px;
+			height: 117px;
+			background: url('images/30/qqL.jpg');
+			position:absolute;
+			left:-29px;
+			top:97px;
+			cursor:pointer;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var is_hidden=true;    //标记在线客服是否隐藏；如果是true，表示隐藏；如果是false，表示显示
+		//当单击按钮的时候，判断：如果在线客服是隐藏的，那么就显示；否则，就隐藏
+		$('#kefu span').click(function(){
+
+			if(is_hidden==true){   //隐藏
+				$('#kefu').animate({right:0}, 500);
+				$('#kefu span').css('background', "url('images/30/qqLOpen.jpg')");
+			}else{
+				$('#kefu').animate({right:-131}, 500);
+				$('#kefu span').css('background', "url('images/30/qqL.jpg')");
+			}
+
+			is_hidden = !is_hidden;    //取反
+		});
+	})
+	</script>
+</head>
+<body>
+	<img src="images/30/bg.jpg" alt="" class="content">
+	<div id="kefu">
+		<img src="images/30/qq.jpg" alt="">
+		<span></span>
+	</div>
+</body>
+</html>

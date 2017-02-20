@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二级下拉菜单</title>
+	<style>
+		*{margin:0;padding:0}
+		#menu{
+			width: 340px;
+			height: 30px;
+			line-height: 30px;
+			background: url('images/54/bg.jpg');
+			margin:100px auto 0;
+		}
+		#menu li{
+			width: 100px;
+			height: 30px;
+			background: url('images/54/libg.jpg');
+			list-style-type:none;
+			float: left;
+			margin-left: 10px;
+			text-align: center;
+			cursor:pointer;
+			position:relative;
+		}
+		#menu ul{
+			position:absolute;
+			left:0;
+			top:30px;
+			display:none;
+		}
+		#menu ul li{
+			margin-left: 0;
+		}
+
+		.content{
+			margin:0 auto;
+			display:block;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		/*
+		//当鼠标移上一级菜单的时候，显示下方的二级菜单
+		$('#menu>li').mouseover(function(e){
+			// $('#menu ul').slideDown();   错误的做法
+			$(this).children().slideDown();
+		});
+
+		//当鼠标移开菜单的时候，隐藏下方的二级菜单
+		$('#menu>li').mouseout(function(e){
+			$(this).children().slideUp();
+		});
+		*/
+
+		/*
+		//当鼠标移上一级菜单的时候，显示下方的二级菜单
+		$('#menu>li').mouseenter(function(e){
+			// $('#menu ul').slideDown();   错误的做法
+			$(this).children().stop(true).slideDown();
+		});
+
+		//当鼠标移开菜单的时候，隐藏下方的二级菜单
+		$('#menu>li').mouseleave(function(e){
+			$(this).children().stop(true).slideUp();
+		});
+		*/
+	
+		/*
+		$('#menu>li').hover(
+			function(e){
+				$(this).children().stop(true).slideDown();
+			}, 
+			function(e){
+				$(this).children().stop(true).slideUp();
+			}
+		);
+		*/
+
+		$('#menu>li').hover(function(e){
+			$(this).children().stop(true).slideToggle();
+		});
+
+	})
+	</script>
+</head>
+<body>
+	<ul id="menu">
+		<li>
+			一级菜单
+			<ul>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>
+			一级菜单
+			<ul>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>
+			一级菜单
+			<ul>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+	</ul>
+
+	<img src="images/jin.jpg" alt="" class="content">
+</body>
+</html>

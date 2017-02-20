@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布功能</title>
+	<style>
+		*{margin:0;padding:0}
+		#weibo{
+			width: 600px;
+			padding:10px;
+			border: 1px solid #000;
+			margin:100px auto 0;
+		}
+		#weibo textarea{
+			width: 455px;
+			height: 165px;
+			resize:none;
+			vertical-align: bottom;
+		}
+		#weibo button{
+			width: 40px;
+			height: 24px;
+			vertical-align: bottom;
+		}
+		#weibo ul{
+			margin:20px 20px 20px 90px;
+		}
+		#weibo li{
+			line-height: 24px;
+			list-style-type:none;
+			border-bottom:1px dashed #ccc;
+			word-break:break-all;   /*自动换行*/
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		//当单击按钮的时候，发布微博
+		$('#weibo button').click(function(){
+			//得到用户的输入
+			var txt = $.trim( $('#weibo textarea').prop('value') );
+			// console.log(txt);
+
+			if(txt!=''){
+				var $new_li = $('<li>'+txt+'</li>');
+
+				$('ul').prepend( $new_li );
+
+				$('ul>li:first').hide().slideDown(500);
+			}else{
+				alert('请输入微博内容');
+			}	
+
+
+			//清空文本域
+			$('#weibo textarea').prop('value', '');
+
+		});
+	})
+	</script>
+</head>
+<body>
+	<div id="weibo">
+		微博内容： 
+		<textarea></textarea>
+		<button>发布</button>
+		<ul>
+
+			<li>昨天，我碰到了宁泽涛。他穿着衣服，我差点没认出来。</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>
+	<style>
+		ul{
+			width: 400px;
+			margin:100px auto 0;
+		}
+		ul li{
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: #eee;
+			border: 1px solid #000;
+			cursor:pointer;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 单击事件
+		$('ul li:eq(0)').click(function(e){
+			alert('单击事件发生了...');
+		});
+
+		// 双击事件
+		$('ul li:eq(1)').dblclick(function(e){
+			alert('双击事件发生了...');
+		});
+
+		// 鼠标按键按下事件
+		$('ul li:eq(2)').mousedown(function(e){
+			alert('鼠标按键按下事件发生了...');
+		});
+
+		// 鼠标按键抬起事件
+		$('ul li:eq(3)').mouseup(function(e){
+			alert('鼠标按键抬起事件发生了...');
+		});
+
+		// 鼠标移上事件
+		$('ul li:eq(4)').mouseover(function(e){
+			alert('鼠标移上事件发生了');
+		});
+
+		// 鼠标移开事件
+		$('ul li:eq(5)').mouseout(function(e){
+			alert('鼠标移开事件发生了');
+		});
+
+		// 鼠标移动事件
+		$('ul li:eq(6)').mousemove(function(e){
+			console.log('鼠标移动事件发生了');
+		});
+	})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>单击事件</li>
+		<li>双击事件</li>
+		<li>鼠标按键按下事件</li>
+		<li>鼠标按键抬起事件</li>
+		<li>鼠标移上事件</li>
+		<li>鼠标移开事件</li>
+		<li>鼠标移动事件</li>
+	</ul>
+</body>
+</html>

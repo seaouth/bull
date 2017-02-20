@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动动画</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		// 滑动隐藏
+		$('button:eq(0)').click(function(){
+			
+
+			$('img').slideUp(1000, 'swing', function(){
+				//当动画完成后要执行的代码
+				alert('滑动隐藏动画执行完毕');
+			});
+
+			
+		});
+
+		// 滑动显示
+		$('button:eq(1)').click(function(){
+			$('img').slideDown(1000, 'swing', function(){
+				//当动画完成后要执行的代码
+				alert('滑动显示动画执行完毕');
+			});
+		});
+
+		// 滑动切换
+		$('button:eq(2)').click(function(){
+			$('img').slideToggle(1000, 'swing', function(){
+				//当动画完成后要执行的代码
+				alert('滑动切换动画执行完毕');
+			});
+		});
+	})
+	</script>
+</head>
+<body>
+	<button>滑动隐藏</button>
+	<button>滑动显示</button>
+	<button>滑动切换</button>
+	<br><br>
+	<img src="images/22/01.jpg" width="690" height="349" alt="">
+</body>
+</html>
